@@ -31,9 +31,15 @@ app.get("/repositories", (request, response) => {
 });
 
 app.post("/repositories", (request, response) => {
-  const { title, url, techs, likes = 0 } = request.body;
+  const { title, url, techs } = request.body;
 
-  const repository = { id: uuid(), title, url, techs, likes };
+  const repository = {
+    id: uuid(),
+    title,
+    url,
+    techs,
+    likes: 0
+  };
 
   repositories.push(repository);
 
